@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .course {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+    .enroll-button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 14px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div id="coursesContainer"></div>
+
+<script>
+  // Sample data for courses (can be fetched from a server in a real scenario)
+  const courses = [
+    { id: 1, title: 'Introduction to HTML', instructor: 'John Doe' },
+    { id: 2, title: 'CSS Basics', instructor: 'Jane Smith' },
+    { id: 3, title: 'JavaScript Fundamentals', instructor: 'Alex Johnson' }
+    // Additional courses can be added here
+  ];
+
+  const coursesContainer = document.getElementById('coursesContainer');
+
+  // Display courses
+  courses.forEach(course => {
+    const courseDiv = document.createElement('div');
+    courseDiv.classList.add('course');
+    courseDiv.innerHTML = `
+      <h3>${course.title}</h3>
+      <p>Instructor: ${course.instructor}</p>
+      <button class="enroll-button" onclick="enroll(${course.id})">Enroll</button>
+    `;
+    coursesContainer.appendChild(courseDiv);
+  });
+
+  // Function to simulate enrollment (can be replaced with actual functionality)
+  function enroll(courseId) {
+    // Here you can implement the enrollment logic, such as adding the user to the course
+    console.log(`Enrolled in course with ID: ${courseId}`);
+    // You might want to display a confirmation message or perform other actions
+  }
+</script>
+
+</body>
+</html>
